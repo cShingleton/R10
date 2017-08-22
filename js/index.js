@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import { Provider } from 'react-redux'; 
+import { Provider } from 'react-redux';
+import { StatusBar } from 'react-native';
 import {
   NavigationContext,
   NavigationProvider,
+  NavigationStyles,
   StackNavigation,
 } from '@expo/ex-navigation';
 
@@ -18,11 +20,15 @@ export default class R10 extends Component {
     return (
       <Provider store={Store}>
         <NavigationProvider context={navigationContext}>
-          <StackNavigation
-            navigationUID="root"
-            id="root"
-            initialRoute={Router.getRoute('about')}
-          />
+            <StatusBar barStyle="light-content" />
+            <StackNavigation
+              navigationUID="root"
+              id="root"
+              initialRoute={Router.getRoute('navigation')}
+              defaultRouteConfig={{
+                styles: { ...NavigationStyles.SlideVertical }
+              }}
+            />
         </NavigationProvider>
       </Provider>
     );

@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { colors } from '../../config/styles';
 
 export const styles = StyleSheet.create({
     talkContainer: {
@@ -18,7 +19,7 @@ export const styles = StyleSheet.create({
     },
     subTitle: {
         fontSize: 12,
-        color: '#999999',
+        color: colors.mediumGray,
         paddingLeft: 10,
         paddingRight: 5
     }

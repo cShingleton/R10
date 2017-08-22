@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
 import Loader from '../../components/Loader';
-import Speaker from './Speaker';
+import Maps from './Maps';
 
-class SpeakerContainer extends Component {
+class MapsContainer extends Component {
 
     constructor(props) {
         super(props);
@@ -11,6 +11,12 @@ class SpeakerContainer extends Component {
         this.state = {
             isLoading: true
         };
+    }
+
+    static route = {
+        navigationBar: {
+          title: 'Maps',
+        }
     }
 
     componentDidMount() {
@@ -26,10 +32,10 @@ class SpeakerContainer extends Component {
             );
         } else {
             return (
-                <Speaker />
+                <Maps />
             );
         }
     }
 }
 
-export default SpeakerContainer;
+export default MapsContainer;

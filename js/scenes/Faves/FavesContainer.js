@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 
 import Loader from '../../components/Loader';
 import Faves from './Faves';
-import { styles } from './styles';
 
 class FavesContainer extends Component {
 
@@ -13,6 +11,12 @@ class FavesContainer extends Component {
         this.state = {
             isLoading: true
         };
+    }
+
+    static route = {
+        navigationBar: {
+          title: 'Faves',
+        }
     }
 
     componentDidMount() {
@@ -32,10 +36,6 @@ class FavesContainer extends Component {
             );
         }
     }
-};
+}
 
 export default FavesContainer;
-
-FavesContainer.propTypes = {
-
-};

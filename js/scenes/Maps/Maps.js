@@ -4,17 +4,17 @@ import { ScrollView, Text, View } from 'react-native';
 
 import { styles } from './styles';
 
-const Faves = () => {
+const Maps = () => {
     return (
         <ScrollView>
-            <Text>This is the Faves view!</Text>
+            <Text>This is the Maps view!</Text>
         </ScrollView>
     );
 };
 
-export default Faves;
+export default Maps;
 
-Faves.propTypes = {
+Maps.propTypes = {
 
 };
 

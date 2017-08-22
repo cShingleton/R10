@@ -4,7 +4,6 @@ import Loader from '../../components/Loader';
 import Schedule from './Schedule';
 import { formatSessionData } from '../../lib/helperFunctions';
 
-
 class ScheduleContainer extends Component {
 
     constructor(props) {

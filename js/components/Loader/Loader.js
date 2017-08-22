@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { ActivityIndicator } from 'react-native';
 
 import { styles } from './styles';
@@ -12,9 +11,5 @@ const Loader = () => (
         style={styles.activityIndicator}
     />
 );
-
-ActivityIndicator.propTypes = {
-
-};
 
 export default Loader;

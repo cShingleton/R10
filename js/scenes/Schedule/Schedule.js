@@ -9,8 +9,7 @@ const Schedule = ({ sessionData }) => {
     return (
         <View>
             <SectionList
-                sections={sessionData}
-                //keyExtractor={(item) => {item.section.data.title}}
+                keyExtractor={(item) => (item.session_id)}
                 renderItem={(item) => (
                     <View style={styles.talkContainer}>
                         <Text style={styles.Title}>{item.item.title}</Text>
@@ -18,9 +17,9 @@ const Schedule = ({ sessionData }) => {
                     </View>
                 )}
                 renderSectionHeader={(headerItem) => (
-                    // take into account UTC offset and add unix method
-                    <Text style={styles.time}>{Moment(headerItem.section.title).format('h:mm a')}</Text>
+                    <Text style={styles.time}>{Moment.unix(headerItem.section.title).format('h:mm A')}</Text>
                 )}
+                sections={sessionData}
             />
         </View>
     );
