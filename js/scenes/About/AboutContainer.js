@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 
 import Loader from '../../components/Loader';
 import About from './About';
-import { styles } from './styles';
 
 class AboutContainer extends Component {
 
@@ -30,7 +28,7 @@ class AboutContainer extends Component {
             .then(data => {
                 this.setState({ data });
             })
-            .catch(error => console.log(`Error fetching JSON: ${error}`));
+            .catch(error => `Error fetching JSON: ${error}`);
     }
 
     componentDidUpdate() {
@@ -50,10 +48,6 @@ class AboutContainer extends Component {
             );
         }
     }
-};
+}
 
 export default AboutContainer;
-
-AboutContainer.propTypes = {
-
-};

@@ -48,6 +48,6 @@ const About = ({ conductData }) => {
 export default About;
 
 About.propTypes = {
-
+    conductData: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string))
 };
 
