@@ -1,24 +1,30 @@
 import React, { Component } from 'react';
-import { Text } from 'react-native';
+import { Dimensions, Text, View } from 'react-native';
 import {
   StackNavigation,
   TabNavigation,
   TabNavigationItem as TabItem
 } from '@expo/ex-navigation';
 import Icon from 'react-native-vector-icons/Ionicons';
+import LinearGradient from 'react-native-linear-gradient';
 
 import Router from './routes';
 import { colors, typography } from '../config/styles';
+import { styles } from './styles';
 
 const defaultRouteConfig = {
   navigationBar: {
     tintColor: colors.white,
     titleStyle: {
-      fontFamily: typography.fontMainLight   
+      fontFamily: typography.fontMainLight
     },
-    //renderBackground: () => (
-      // return linear gradient for component
-    //)
+    renderBackground: function renderBkGrnd() {
+      return <LinearGradient
+        start={{ x: 0.0, y: 1.0 }} end={{ x: 1.0, y: 1.0 }}
+        colors={[colors.red, colors.purple]}
+        style={styles.linearGradient}
+      />
+    }
   }
 };
 
@@ -49,7 +55,7 @@ class NavigationLayout extends Component {
         <TabItem
           id="Schedule"
           title="Schedule"
-          renderIcon={(isSelected) => this.renderIcon('ios-calendar', isSelected) }
+          renderIcon={(isSelected) => this.renderIcon('ios-calendar', isSelected)}
           renderTitle={this.renderTitle}
         >
           <StackNavigation
@@ -63,7 +69,7 @@ class NavigationLayout extends Component {
         <TabItem
           id="Maps"
           title="Maps"
-          renderIcon={(isSelected) => this.renderIcon('ios-map', isSelected) }
+          renderIcon={(isSelected) => this.renderIcon('ios-map', isSelected)}
           renderTitle={this.renderTitle}
         >
           <StackNavigation
@@ -77,7 +83,7 @@ class NavigationLayout extends Component {
         <TabItem
           id="Faves"
           title="Faves"
-          renderIcon={(isSelected) => this.renderIcon('ios-heart', isSelected) }
+          renderIcon={(isSelected) => this.renderIcon('ios-heart', isSelected)}
           renderTitle={this.renderTitle}
         >
           <StackNavigation
@@ -91,7 +97,7 @@ class NavigationLayout extends Component {
         <TabItem
           id="About"
           title="About"
-          renderIcon={(isSelected) => this.renderIcon('ios-information-circle', isSelected) }
+          renderIcon={(isSelected) => this.renderIcon('ios-information-circle', isSelected)}
           renderTitle={this.renderTitle}
         >
           <StackNavigation

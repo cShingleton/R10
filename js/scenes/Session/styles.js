@@ -54,5 +54,12 @@ export const styles = StyleSheet.create({
         width: 60, 
         height: 60,
         borderRadius: 30
+    },
+    subContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-between'
+    },
+    iconHeart: {
+        color: colors.red
     }
 });

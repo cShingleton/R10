@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Image, ScrollView, Text, TouchableWithoutFeedback, View } from 'react-native';
+import { Image, Linking, ScrollView, Text, TouchableWithoutFeedback, View } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import { styles } from './styles';
 import { returnToSession } from '../../navigation/navigationHelpers';
+import Button from '../../components/Button';
 
 const Speaker = ({ speakerData }) => {
 
@@ -25,6 +26,10 @@ const Speaker = ({ speakerData }) => {
                 />
                 <Text style={styles.speakerName}>{speakerData.name}</Text>
                 <Text style={styles.speakerBio}>{speakerData.bio}</Text>
+                <Button 
+                    text='Read more on Wikipedia'
+                    onPress={() => Linking.openURL(speakerData.url).catch(err => console.error('An error occurred', err))}
+                />
             </View>
         </ScrollView >
     );

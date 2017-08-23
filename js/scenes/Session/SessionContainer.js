@@ -28,6 +28,7 @@ class SessionContainer extends Component {
                 <Session 
                     sessionData={this.props.sessionData.item}
                     speakerData={this.props.speakerData}
+                    faveData={this.props.faveData}
                 />
             );
         }
@@ -35,6 +36,7 @@ class SessionContainer extends Component {
 }
 
 const mapStateToProps = (state) => ({
+    faveData: state.faves.unformatFaveData,
     speakerData: state.session.speaker,
     loading: state.session.loading
 });

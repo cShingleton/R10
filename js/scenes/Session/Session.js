@@ -2,18 +2,30 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Image, ScrollView, Text, TouchableWithoutFeedback, View } from 'react-native';
 import Moment from 'moment';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 import Separator from '../../components/Separator';
+import Button from '../../components/Button';
+import { createFave, deleteFave } from '../../config/models';
 import { goToSpeaker } from '../../navigation/navigationHelpers';
 import { styles } from './styles';
 
-const Session = ({ sessionData, speakerData }) => {
+const Session = ({ sessionData, speakerData, faveData }) => {
+
+    const matchedId = faveData.find(item => item.session_id === sessionData.session_id);
+
     return (
         <ScrollView style={styles.sceneContain}>
             <View style={styles.descriptionContainer}>
-                <Text style={styles.subTitle}>
-                    {sessionData.location}
-                </Text>
+                <View style={styles.subContainer}>
+                    <Text style={styles.subTitle}>
+                        {sessionData.location}
+                    </Text>
+                    {(matchedId) 
+                        ? <Icon name="ios-heart" style={styles.iconHeart} size={16} />
+                        : null
+                    }
+                </View>
                 <Text style={styles.subHeader}>
                     {sessionData.title}
                 </Text>
@@ -36,6 +48,18 @@ const Session = ({ sessionData, speakerData }) => {
                     </View>
                 </TouchableWithoutFeedback>
                 <Separator />
+                <Button 
+                    text={
+                        (matchedId)
+                        ? "Remove from Faves"
+                        : "Add to Faves"
+                    }
+                    onPress={
+                        (matchedId)
+                        ? () => deleteFave(sessionData.session_id)
+                        : () => createFave(sessionData.session_id)
+                    }
+                />
             </View >
         </ScrollView >
     );

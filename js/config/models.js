@@ -10,12 +10,14 @@ const FaveSchema = {
 };
 
 const realm = new Realm({ schema: [FaveSchema] });
+console.log('the path is: ', realm.path);
 
 export const createFave = (faveId) => {
     try {
         realm.write(() => {
-            realm.create('Fave', { id: faveId, faved_on: new Date().getTime() });
+            realm.create('Fave', { id: faveId, faved_on: new Date() });
         });
+        
     } catch (e) {
         return "Error on creation";
     }
@@ -34,7 +36,7 @@ export const deleteFave = (faveId) => {
 
 export const queryFaves = () => {
     try {
-        let faves = realm.objects('Fave');
+        let faves = realm.objects('Fave').map(fave => fave);
         return faves;
     } catch (e) {
         return "Error querying database";
