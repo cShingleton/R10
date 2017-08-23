@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Text } from 'react-native';
 import {
   StackNavigation,
   TabNavigation,
@@ -7,13 +8,13 @@ import {
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import Router from './routes';
-import { colors } from '../config/styles';
+import { colors, typography } from '../config/styles';
 
 const defaultRouteConfig = {
   navigationBar: {
-    tintColor: 'white',
+    tintColor: colors.white,
     titleStyle: {
-      // font styling   
+      fontFamily: typography.fontMainLight   
     },
     //renderBackground: () => (
       // return linear gradient for component
@@ -28,6 +29,15 @@ class NavigationLayout extends Component {
     return <Icon name={iconName} size={24} color={color} />
   }
 
+  renderTitle(isSelected, title) {
+    const titleStyle = {
+      color: isSelected ? 'white' : colors.mediumGray,
+      fontSize: 10,
+      fontFamily: typography.fontMain
+    };
+    return <Text style={titleStyle}>{title}</Text>;
+  }
+
   render() {
     return (
       <TabNavigation
@@ -40,6 +50,7 @@ class NavigationLayout extends Component {
           id="Schedule"
           title="Schedule"
           renderIcon={(isSelected) => this.renderIcon('ios-calendar', isSelected) }
+          renderTitle={this.renderTitle}
         >
           <StackNavigation
             id="Schedule"
@@ -53,11 +64,13 @@ class NavigationLayout extends Component {
           id="Maps"
           title="Maps"
           renderIcon={(isSelected) => this.renderIcon('ios-map', isSelected) }
+          renderTitle={this.renderTitle}
         >
           <StackNavigation
             id="Maps"
             navigatorUID="Maps"
             initialRoute={Router.getRoute('maps')}
+            defaultRouteConfig={defaultRouteConfig}
           />
         </TabItem>
 
@@ -65,11 +78,13 @@ class NavigationLayout extends Component {
           id="Faves"
           title="Faves"
           renderIcon={(isSelected) => this.renderIcon('ios-heart', isSelected) }
+          renderTitle={this.renderTitle}
         >
           <StackNavigation
             id="Faves"
             navigatorUID="Faves"
             initialRoute={Router.getRoute('faves')}
+            defaultRouteConfig={defaultRouteConfig}
           />
         </TabItem>
 
@@ -77,11 +92,13 @@ class NavigationLayout extends Component {
           id="About"
           title="About"
           renderIcon={(isSelected) => this.renderIcon('ios-information-circle', isSelected) }
+          renderTitle={this.renderTitle}
         >
           <StackNavigation
             id="About"
             navigatorUID="About"
             initialRoute={Router.getRoute('about')}
+            defaultRouteConfig={defaultRouteConfig}
           />
         </TabItem>
 

@@ -15,7 +15,7 @@ const Router = createRouter(() => ({
     navigation: () => NavigationLayout,
     schedule: () => Schedule,
     session: () => Session,
-    Speaker: () => Speaker
+    speaker: () => Speaker
 }));
 
 export default Router;

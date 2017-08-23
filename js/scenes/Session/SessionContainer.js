@@ -1,40 +1,45 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 import Loader from '../../components/Loader';
 import Session from './Session';
-import { styles } from './styles';
+import { fetchSessionData } from '../../redux/modules/session';
 
 class SessionContainer extends Component {
 
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            isLoading: true
-        };
-    }
-
-    componentDidMount() {
-        if (this.state.isLoading) {
-            this.setState({ isLoading: false });
+    static route = {
+        navigationBar: {
+          title: 'Session',
         }
     }
 
+    componentDidMount() {
+        this.props.dispatch(fetchSessionData(this.props.sessionData.item.speaker));
+    }
+
     render() {
-        if (this.state.isLoading) {
+        if (this.props.loading) {
             return (
                 <Loader />
             );
         } else {
             return (
-                <Session />
+                <Session 
+                    sessionData={this.props.sessionData.item}
+                    speakerData={this.props.speakerData}
+                />
             );
         }
     }
-};
+}
 
-export default SessionContainer;
+const mapStateToProps = (state) => ({
+    speakerData: state.session.speaker,
+    loading: state.session.loading
+});
+
+export default connect(mapStateToProps)(SessionContainer);
 
 SessionContainer.propTypes = {
 

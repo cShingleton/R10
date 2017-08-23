@@ -16,13 +16,13 @@ const About = ({ conductData }) => {
             </View>
             <Separator />
             <View style={styles.descriptionContainer}>
-                <Text>
+                <Text style={styles.text}>
                     R10 is a conference that focuses on just about any subject related to dev.
                 </Text>
                 <Text style={styles.subHeader}>
                     Date &amp; Venue
                 </Text>
-                <Text>
+                <Text style={styles.text}>
                     The R10 conference will take place on Tuesday, June 27, 2017 in Vancouver, BC.
                 </Text>
                 <Text style={styles.subHeader}>
@@ -34,7 +34,7 @@ const About = ({ conductData }) => {
                     renderItem={({ item }) => (
                         <View>
                             <Text style={styles.conductHeader}>+ {item.title}</Text>
-                            <Text style={{ paddingBottom: 20 }}>{item.description}</Text>
+                            <Text style={styles.conductText}>{item.description}</Text>
                         </View>
                     )}
                 />

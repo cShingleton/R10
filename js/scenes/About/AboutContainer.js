@@ -1,18 +1,12 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 import Loader from '../../components/Loader';
 import About from './About';
+import { fetchConductData } from '../../redux/modules/codeofconduct';
 
 class AboutContainer extends Component {
-
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            data: [],
-            isLoading: true
-        };
-    }
 
     static route = {
         navigationBar: {
@@ -21,33 +15,31 @@ class AboutContainer extends Component {
     }
 
     componentDidMount() {
-        let endpoint = 'https://r10app-95fea.firebaseio.com/code_of_conduct.json';
-        fetch(endpoint)
-            // if fetch is successful, read our JSON out of the response
-            .then(response => response.json())
-            .then(data => {
-                this.setState({ data });
-            })
-            .catch(error => `Error fetching JSON: ${error}`);
-    }
-
-    componentDidUpdate() {
-        if (this.state.data && this.state.isLoading) {
-            this.setState({ isLoading: false });
-        }
+        this.props.dispatch(fetchConductData());
     }
 
     render() {
-        if (this.state.isLoading) {
+        if (this.props.loading) {
             return (
                 <Loader />
             );
         } else {
             return (
-                <About conductData={this.state.data} />
+                <About conductData={this.props.conductData} />
             );
         }
     }
 }
 
-export default AboutContainer;
+const mapStateToProps = (state) => ({
+    conductData: state.conduct.conductData,
+    loading: state.conduct.loading
+})
+
+export default connect(mapStateToProps)(AboutContainer);
+
+AboutContainer.propTypes = {
+    loading: PropTypes.bool,
+    conductData: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string)),
+    dispatch: PropTypes.func
+};

@@ -26,7 +26,7 @@ class SpeakerContainer extends Component {
             );
         } else {
             return (
-                <Speaker />
+                <Speaker speakerData={this.props.speakerData}/>
             );
         }
     }

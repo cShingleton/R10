@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Moment from 'moment';
-import { SectionList, Text, View } from 'react-native';
+import { SectionList, Text, TouchableWithoutFeedback, View } from 'react-native';
 
+import { goToSession } from '../../navigation/navigationHelpers'; 
 import { styles } from './styles';
 
 const Schedule = ({ sessionData }) => {
@@ -10,15 +11,20 @@ const Schedule = ({ sessionData }) => {
         <View>
             <SectionList
                 keyExtractor={(item) => (item.session_id)}
-                renderItem={(item) => (
-                    <View style={styles.talkContainer}>
-                        <Text style={styles.Title}>{item.item.title}</Text>
-                        <Text style={styles.subTitle}>{item.item.location}</Text>
-                    </View>
+                renderItem={({item}) => (
+                    <TouchableWithoutFeedback onPress={() => goToSession('Schedule', { item })}>
+                        <View style={styles.talkContainer}>
+                            <Text style={styles.Title}>{item.title}</Text>
+                            <Text style={styles.subTitle}>{item.location}</Text>
+                        </View>
+                    </TouchableWithoutFeedback>
                 )}
                 renderSectionHeader={(headerItem) => (
                     <Text style={styles.time}>{Moment.unix(headerItem.section.title).format('h:mm A')}</Text>
                 )}
+                ItemSeparatorComponent={() =>
+                    <View style={styles.separator} />
+                }
                 sections={sessionData}
             />
         </View>

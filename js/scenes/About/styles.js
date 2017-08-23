@@ -1,4 +1,5 @@
 import { Dimensions, StyleSheet } from 'react-native';
+import { colors, typography } from '../../config/styles';
 
 export const styles = StyleSheet.create({
     sceneContain: {
@@ -9,12 +10,6 @@ export const styles = StyleSheet.create({
     },
     container: {
         justifyContent: 'center'
-    },
-    header: {
-        flex: 0.1,
-        backgroundColor: '#cf392a'
-    },
-    headerText: {
     },
     logoContainer: {
         flex: 0.1,
@@ -29,12 +24,21 @@ export const styles = StyleSheet.create({
         marginTop: 15,
         marginBottom: 15,
         fontSize: 20,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        fontFamily: typography.fontMain
+    },
+    text: {
+        fontFamily: typography.fontMainLight
     },
     conductHeader: {
         paddingBottom: 20,
-        color: '#9963ea',
+        color: colors.purple,
+        fontFamily: typography.fontMainLight,
         fontSize: 16
+    },
+    conductText: {
+        paddingBottom: 20,
+        fontFamily: typography.fontMainLight
     }
 });
 
