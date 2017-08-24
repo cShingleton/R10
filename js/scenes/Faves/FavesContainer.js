@@ -57,5 +57,13 @@ FavesContainer.propTypes = {
         })),
         title: PropTypes.number
     })),
-    dispatch: PropTypes.func
+    dispatch: PropTypes.func,
+    unformattedFaveData: PropTypes.arrayOf(PropTypes.shape({
+        description: PropTypes.string,
+        location: PropTypes.string,
+        session_id: PropTypes.string,
+        speaker: PropTypes.string,
+        start_time: PropTypes.number,
+        title: PropTypes.string
+    }))
 };

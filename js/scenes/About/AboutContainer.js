@@ -34,7 +34,7 @@ class AboutContainer extends Component {
 const mapStateToProps = (state) => ({
     conductData: state.conduct.conductData,
     loading: state.conduct.loading
-})
+});
 
 export default connect(mapStateToProps)(AboutContainer);
 

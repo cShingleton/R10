@@ -1,9 +1,10 @@
 import React from 'react';
-import { Text, TouchableOpacity, View } from 'react-native';
+import PropTypes from 'prop-types';
+import { Text, TouchableOpacity } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
 import { styles } from './styles';
-import { colors, typography } from '../../config/styles';
+import { colors } from '../../config/styles';
 
 const Button = ({ text, onPress }) => {
     return (
@@ -20,3 +21,8 @@ const Button = ({ text, onPress }) => {
 };
 
 export default Button;
+
+Button.propTypes = {
+    text: PropTypes.string,
+    onPress: PropTypes.func
+};

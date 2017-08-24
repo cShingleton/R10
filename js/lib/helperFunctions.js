@@ -9,4 +9,4 @@ export const formatSessionData = (sessions) => {
 export const formatDataObject = (data) => {
   const dataObject = Object.getOwnPropertyNames(data).map(index => data[index]);
   return dataObject[0];
-}
+};

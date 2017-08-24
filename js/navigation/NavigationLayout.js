@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Dimensions, Text, View } from 'react-native';
+import { Text, StyleSheet } from 'react-native';
 import {
   StackNavigation,
   TabNavigation,
@@ -10,7 +10,7 @@ import LinearGradient from 'react-native-linear-gradient';
 
 import Router from './routes';
 import { colors, typography } from '../config/styles';
-import { styles } from './styles';
+//import { styles } from './styles';
 
 const defaultRouteConfig = {
   navigationBar: {
@@ -22,7 +22,7 @@ const defaultRouteConfig = {
       return <LinearGradient
         start={{ x: 0.0, y: 1.0 }} end={{ x: 1.0, y: 1.0 }}
         colors={[colors.red, colors.purple]}
-        style={styles.linearGradient}
+        style={StyleSheet.absoluteFill}
       />
     }
   }

@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import Loader from '../../components/Loader';
-import Schedule from './Schedule';
-import realm from '../../config/models';
-import { fetchScheduleData } from '../../redux/modules/schedule';
 import { fetchFaveData } from '../../redux/modules/faves';
+import { fetchScheduleData } from '../../redux/modules/schedule';
+import Loader from '../../components/Loader';
+import realm from '../../config/models';
+import Schedule from './Schedule';
 
 class ScheduleContainer extends Component {
 
@@ -59,5 +59,13 @@ ScheduleContainer.propTypes = {
         })),
         title: PropTypes.number
     })),
-    dispatch: PropTypes.func
+    dispatch: PropTypes.func,
+    faveData: PropTypes.arrayOf(PropTypes.shape({
+        description: PropTypes.string,
+        location: PropTypes.string,
+        session_id: PropTypes.string,
+        speaker: PropTypes.string,
+        start_time: PropTypes.number,
+        title: PropTypes.string
+    }))
 };

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import Loader from '../../components/Loader';
 import Speaker from './Speaker';
@@ -33,3 +34,7 @@ class SpeakerContainer extends Component {
 }
 
 export default SpeakerContainer;
+
+SpeakerContainer.propTypes = {
+    speakerData: PropTypes.objectOf(PropTypes.string)
+};

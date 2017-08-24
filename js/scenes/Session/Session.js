@@ -72,6 +72,22 @@ const Session = ({ sessionData, speakerData, faveData }) => {
 export default Session;
 
 Session.propTypes = {
-
+    speakerData: PropTypes.objectOf(PropTypes.string),
+    faveData: PropTypes.arrayOf(PropTypes.shape({
+        description: PropTypes.string,
+        location: PropTypes.string,
+        session_id: PropTypes.string,
+        speaker: PropTypes.string,
+        start_time: PropTypes.number,
+        title: PropTypes.string
+    })),
+    sessionData: PropTypes.shape({
+        description: PropTypes.string,
+        location: PropTypes.string,
+        session_id: PropTypes.string,
+        speaker: PropTypes.string,
+        start_time: PropTypes.number,
+        title: PropTypes.string
+    })
 };
 

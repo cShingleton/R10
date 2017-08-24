@@ -52,6 +52,14 @@ Schedule.propTypes = {
             title: PropTypes.string
         })),
         title: PropTypes.number
+    })),
+    faveData: PropTypes.arrayOf(PropTypes.shape({
+        description: PropTypes.string,
+        location: PropTypes.string,
+        session_id: PropTypes.string,
+        speaker: PropTypes.string,
+        start_time: PropTypes.number,
+        title: PropTypes.string
     }))
 };
 

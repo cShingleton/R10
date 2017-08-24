@@ -10,7 +10,7 @@ class SessionContainer extends Component {
 
     static route = {
         navigationBar: {
-          title: 'Session',
+            title: 'Session',
         }
     }
 
@@ -25,7 +25,7 @@ class SessionContainer extends Component {
             );
         } else {
             return (
-                <Session 
+                <Session
                     sessionData={this.props.sessionData.item}
                     speakerData={this.props.speakerData}
                     faveData={this.props.faveData}
@@ -44,5 +44,25 @@ const mapStateToProps = (state) => ({
 export default connect(mapStateToProps)(SessionContainer);
 
 SessionContainer.propTypes = {
-
+    dispatch: PropTypes.func,
+    loading: PropTypes.bool,
+    speakerData: PropTypes.objectOf(PropTypes.string),
+    faveData: PropTypes.arrayOf(PropTypes.shape({
+        description: PropTypes.string,
+        location: PropTypes.string,
+        session_id: PropTypes.string,
+        speaker: PropTypes.string,
+        start_time: PropTypes.number,
+        title: PropTypes.string
+    })),
+    sessionData: {
+        item: PropTypes.shape({
+            description: PropTypes.string,
+            location: PropTypes.string,
+            session_id: PropTypes.string,
+            speaker: PropTypes.string,
+            start_time: PropTypes.number,
+            title: PropTypes.string
+        })
+    }
 };

@@ -8,7 +8,6 @@ import { returnToSession } from '../../navigation/navigationHelpers';
 import Button from '../../components/Button';
 
 const Speaker = ({ speakerData }) => {
-
     return (
         <ScrollView style={styles.sceneContain}>
             <View style={styles.titleContainer}>
@@ -28,7 +27,7 @@ const Speaker = ({ speakerData }) => {
                 <Text style={styles.speakerBio}>{speakerData.bio}</Text>
                 <Button 
                     text='Read more on Wikipedia'
-                    onPress={() => Linking.openURL(speakerData.url).catch(err => console.error('An error occurred', err))}
+                    onPress={() => Linking.openURL(speakerData.url).catch(err => ('An error occurred', err))}
                 />
             </View>
         </ScrollView >
@@ -38,6 +37,6 @@ const Speaker = ({ speakerData }) => {
 export default Speaker;
 
 Speaker.propTypes = {
-
+    speakerData: PropTypes.objectOf(PropTypes.string)
 };
 
