@@ -11,12 +11,16 @@ const Speaker = ({ speakerData }) => {
     return (
         <ScrollView style={styles.sceneContain}>
             <View style={styles.titleContainer}>
-                <TouchableWithoutFeedback onPress={() => returnToSession()}>
-                    <Icon name='ios-close' size={36} color='white' style={styles.cross} />
-                </TouchableWithoutFeedback>
-                <Text style={styles.aboutTitle}>
-                    About the Speaker
+                <View style={styles.crossContainer}>
+                    <TouchableWithoutFeedback onPress={() => returnToSession()}>
+                        <Icon name='ios-close' size={36} color='white' style={styles.cross} />
+                    </TouchableWithoutFeedback>
+                </View>
+                <View style={styles.aboutTitleContainer}>
+                    <Text style={styles.aboutTitle}>
+                        About the Speaker
                 </Text>
+                </View>
             </View >
             <View style={styles.speakerContainer}>
                 <Image
@@ -25,7 +29,7 @@ const Speaker = ({ speakerData }) => {
                 />
                 <Text style={styles.speakerName}>{speakerData.name}</Text>
                 <Text style={styles.speakerBio}>{speakerData.bio}</Text>
-                <Button 
+                <Button
                     text='Read more on Wikipedia'
                     onPress={() => Linking.openURL(speakerData.url).catch(err => ('An error occurred', err))}
                 />

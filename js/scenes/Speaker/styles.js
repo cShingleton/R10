@@ -1,4 +1,4 @@
-import { Dimensions, StyleSheet } from 'react-native';
+import { Dimensions, Platform, StyleSheet } from 'react-native';
 
 import { colors, typography } from '../../config/styles';
 
@@ -16,12 +16,18 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         paddingTop: 40
     },
+    aboutTitleContainer: {
+        alignItems: 'center',
+        width: Dimensions.get('window').width / 1.4
+    },
     aboutTitle: {
         fontSize: 16,
-        marginLeft: 60,
-        marginBottom: 5,
         fontFamily: typography.fontMain,
         color: colors.white
+    },
+    crossContainer: {
+        marginLeft: 15,
+        width: Dimensions.get('window').width / 8
     },
     cross: {
         marginLeft: 15
