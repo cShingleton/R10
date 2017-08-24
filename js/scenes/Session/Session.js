@@ -23,7 +23,7 @@ const Session = ({ sessionData, speakerData, faveIds }) => {
                     </Text>
                     {(matchedId)
                         ? <Icon 
-                            name={Platform.OS === 'ios' ? 'ios-heart' : 'md-heart'}
+                            name={(Platform.OS === 'ios') ? "ios-heart" : "md-heart"}
                             style={styles.iconHeart} 
                             size={16} />
                         : null
