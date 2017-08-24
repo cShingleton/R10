@@ -7,6 +7,7 @@ export const styles = StyleSheet.create({
         width: Dimensions.get('window').width / 1.45,
         height: 40,
         margin: 20,
+        alignSelf: 'center',
         alignItems: 'center',
         justifyContent: 'center',
         borderRadius: 30

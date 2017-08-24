@@ -2,6 +2,8 @@
  Global Shared Styles
 **/
 
+import { Platform } from 'react-native';
+
 export const colors = {
     red: '#cf392a',
     mediumGray: '#999999',
@@ -13,6 +15,13 @@ export const colors = {
 
 export const typography = {
     baseSize: 16,
-    fontMain: 'Montserrat',
-    fontMainLight: 'Montserrat-Light' 
+    fontMainLight: 'Montserrat-Light',
+    ...Platform.select({
+        ios: {
+            fontMain: 'Montserrat'
+        },
+        android: {
+            fontMain: 'Montserrat-Regular'
+        }
+    })
 };

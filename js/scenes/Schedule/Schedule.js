@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Moment from 'moment';
-import { SectionList, Text, TouchableWithoutFeedback, View } from 'react-native';
+import { Platform, SectionList, Text, TouchableWithoutFeedback, View } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import { goToSession } from '../../navigation/navigationHelpers';
 import { styles } from './styles';
 
-const Schedule = ({ sessionData, faveData }) => {
+const Schedule = ({ sessionData, faveIds }) => {
 
     return (
         <View>
@@ -19,8 +19,10 @@ const Schedule = ({ sessionData, faveData }) => {
                             <Text style={styles.Title}>{item.title}</Text>
                             <View style={styles.subContainer}>
                                 <Text style={styles.subTitle}>{item.location}</Text>
-                                {(faveData.find(fave => fave.session_id === item.session_id))
-                                    ? <Icon name="ios-heart" style={styles.iconHeart} size={16} />
+                                {(faveIds.find(fave => fave === item.session_id))
+                                    ? <Icon name={(Platform.OS === 'ios') ? "ios-heart" : "md-heart"} 
+                                            style={styles.iconHeart} 
+                                            size={16} />
                                     : null
                                 }
                             </View>
@@ -53,13 +55,13 @@ Schedule.propTypes = {
         })),
         title: PropTypes.number
     })),
-    faveData: PropTypes.arrayOf(PropTypes.shape({
-        description: PropTypes.string,
-        location: PropTypes.string,
-        session_id: PropTypes.string,
-        speaker: PropTypes.string,
-        start_time: PropTypes.number,
-        title: PropTypes.string
-    }))
+    // faveData: PropTypes.arrayOf(PropTypes.shape({
+    //     description: PropTypes.string,
+    //     location: PropTypes.string,
+    //     session_id: PropTypes.string,
+    //     speaker: PropTypes.string,
+    //     start_time: PropTypes.number,
+    //     title: PropTypes.string
+    // }))
 };
 

@@ -31,7 +31,7 @@ class ScheduleContainer extends Component {
             return (
                 <Schedule 
                     sessionData={this.props.scheduleData} 
-                    faveData={this.props.faveData}
+                    faveIds={this.props.faveIds}
                 />
             );
         }
@@ -41,7 +41,7 @@ class ScheduleContainer extends Component {
 const mapStateToProps = (state) => ({
     scheduleData: state.schedule.scheduleData,
     loading: state.schedule.loading,
-    faveData: state.faves.unformatFaveData
+    faveIds: state.faves.faveIds
 });
 
 export default connect(mapStateToProps)(ScheduleContainer);
@@ -60,12 +60,12 @@ ScheduleContainer.propTypes = {
         title: PropTypes.number
     })),
     dispatch: PropTypes.func,
-    faveData: PropTypes.arrayOf(PropTypes.shape({
-        description: PropTypes.string,
-        location: PropTypes.string,
-        session_id: PropTypes.string,
-        speaker: PropTypes.string,
-        start_time: PropTypes.number,
-        title: PropTypes.string
-    }))
+    // faveData: PropTypes.arrayOf(PropTypes.shape({
+    //     description: PropTypes.string,
+    //     location: PropTypes.string,
+    //     session_id: PropTypes.string,
+    //     speaker: PropTypes.string,
+    //     start_time: PropTypes.number,
+    //     title: PropTypes.string
+    // }))
 };

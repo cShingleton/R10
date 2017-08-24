@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Image, ScrollView, Text, TouchableWithoutFeedback, View } from 'react-native';
+import { Image, Platform, ScrollView, Text, TouchableWithoutFeedback, View } from 'react-native';
 import Moment from 'moment';
 import Icon from 'react-native-vector-icons/Ionicons';
 
@@ -10,9 +10,9 @@ import { createFave, deleteFave } from '../../config/models';
 import { goToSpeaker } from '../../navigation/navigationHelpers';
 import { styles } from './styles';
 
-const Session = ({ sessionData, speakerData, faveData }) => {
+const Session = ({ sessionData, speakerData, faveIds }) => {
 
-    const matchedId = faveData.find(item => item.session_id === sessionData.session_id);
+    const matchedId = faveIds.find(item => item === sessionData.session_id);
 
     return (
         <ScrollView style={styles.sceneContain}>
@@ -22,7 +22,10 @@ const Session = ({ sessionData, speakerData, faveData }) => {
                         {sessionData.location}
                     </Text>
                     {(matchedId)
-                        ? <Icon name="ios-heart" style={styles.iconHeart} size={16} />
+                        ? <Icon 
+                            name={Platform.OS === 'ios' ? 'ios-heart' : 'md-heart'}
+                            style={styles.iconHeart} 
+                            size={16} />
                         : null
                     }
                 </View>
@@ -73,14 +76,14 @@ export default Session;
 
 Session.propTypes = {
     speakerData: PropTypes.objectOf(PropTypes.string),
-    faveData: PropTypes.arrayOf(PropTypes.shape({
-        description: PropTypes.string,
-        location: PropTypes.string,
-        session_id: PropTypes.string,
-        speaker: PropTypes.string,
-        start_time: PropTypes.number,
-        title: PropTypes.string
-    })),
+    // faveData: PropTypes.arrayOf(PropTypes.shape({
+    //     description: PropTypes.string,
+    //     location: PropTypes.string,
+    //     session_id: PropTypes.string,
+    //     speaker: PropTypes.string,
+    //     start_time: PropTypes.number,
+    //     title: PropTypes.string
+    // })),
     sessionData: PropTypes.shape({
         description: PropTypes.string,
         location: PropTypes.string,

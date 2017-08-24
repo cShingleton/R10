@@ -29,7 +29,7 @@ class FavesContainer extends Component {
             return (
                 <Faves 
                     faveData={this.props.faveData}
-                    unformatFaveData={this.props.unformattedFaveData} 
+                    faveIds={this.props.faveIds} 
                 />
             );
         }
@@ -38,7 +38,7 @@ class FavesContainer extends Component {
 
 const mapStateToProps = (state) => ({
     faveData: state.faves.faveData,
-    unformattedFaveData: state.faves.unformatFaveData,
+    faveIds: state.faves.faveIds,
     loading: state.faves.loading
 });
 
@@ -58,12 +58,12 @@ FavesContainer.propTypes = {
         title: PropTypes.number
     })),
     dispatch: PropTypes.func,
-    unformattedFaveData: PropTypes.arrayOf(PropTypes.shape({
-        description: PropTypes.string,
-        location: PropTypes.string,
-        session_id: PropTypes.string,
-        speaker: PropTypes.string,
-        start_time: PropTypes.number,
-        title: PropTypes.string
-    }))
+    // unformattedFaveData: PropTypes.arrayOf(PropTypes.shape({
+    //     description: PropTypes.string,
+    //     location: PropTypes.string,
+    //     session_id: PropTypes.string,
+    //     speaker: PropTypes.string,
+    //     start_time: PropTypes.number,
+    //     title: PropTypes.string
+    // }))
 };

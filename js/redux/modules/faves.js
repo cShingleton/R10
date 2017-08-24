@@ -2,12 +2,12 @@ import { queryFaves } from '../../config/models';
 import { formatSessionData } from '../../lib/helperFunctions';
 
 const SET_FAVES_DATA = 'SET_FAVES_DATA';
-const SET_UNFORMAT_FAVE_DATA = 'SET_UNFORMAT_FAVE_DATA';
+const SET_FAVE_IDS = 'SET_UNFORMAT_FAVE_DATA';
 
 const initialState = {
     loading: true,
     faveData: [],
-    unformatFaveData: []
+    faveIds: []
 };
 
 export function setFaveData(faveData) {
@@ -17,10 +17,10 @@ export function setFaveData(faveData) {
     };
 }
 
-export function setUnformattedFaveData(faveData) {
+export function setFaveIds(faveIds) {
     return {
-        type: SET_UNFORMAT_FAVE_DATA,
-        payload: faveData
+        type: SET_FAVE_IDS,
+        payload: faveIds
     }
 }
 
@@ -32,11 +32,11 @@ export function FavesReducer(state = initialState, action) {
             loading: false,
             faveData: action.payload
         }
-    case SET_UNFORMAT_FAVE_DATA:
+    case SET_FAVE_IDS:
         return {
             ...state,
             loading: false,
-            unformatFaveData: action.payload
+            faveIds: action.payload
         }
     default:
         return state;
@@ -52,7 +52,8 @@ export function fetchFaveData() {
             .then(response => response.json())
             .then(data => {
                 const filterData = data.filter(item => faveData.find(el => el.id === item.session_id));
-                dispatch(setUnformattedFaveData(filterData));
+                const faveIds = filterData.map(fave => fave.session_id);
+                dispatch(setFaveIds(faveIds));
                 const formattedData = formatSessionData(filterData);
                 dispatch(setFaveData(formattedData));
             })
