@@ -1,10 +1,10 @@
-import { NavigationReducer } from '@expo/ex-navigation';
 import { combineReducers } from 'redux';
+import { NavigationReducer } from '@expo/ex-navigation';
 
 import { ConductReducer } from './modules/codeofconduct';
+import { FavesReducer } from './modules/faves';
 import { ScheduleReducer } from './modules/schedule';
 import { SessionReducer } from './modules/session';
-import { FavesReducer } from './modules/faves';
 
 const rootReducer = combineReducers({
     navigation: NavigationReducer,
