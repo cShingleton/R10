@@ -31,13 +31,6 @@ Schedule.propTypes = {
         })),
         title: PropTypes.number
     })),
-    // faveData: PropTypes.arrayOf(PropTypes.shape({
-    //     description: PropTypes.string,
-    //     location: PropTypes.string,
-    //     session_id: PropTypes.string,
-    //     speaker: PropTypes.string,
-    //     start_time: PropTypes.number,
-    //     title: PropTypes.string
-    // }))
+    faveIds: PropTypes.arrayOf(PropTypes.string)
 };
 

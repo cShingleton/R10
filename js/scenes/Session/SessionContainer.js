@@ -46,23 +46,16 @@ export default connect(mapStateToProps)(SessionContainer);
 SessionContainer.propTypes = {
     dispatch: PropTypes.func,
     loading: PropTypes.bool,
-    //speakerData: PropTypes.objectOf(PropTypes.string),
-    // faveData: PropTypes.arrayOf(PropTypes.shape({
-    //     description: PropTypes.string,
-    //     location: PropTypes.string,
-    //     session_id: PropTypes.string,
-    //     speaker: PropTypes.string,
-    //     start_time: PropTypes.number,
-    //     title: PropTypes.string
-    // })),
-    // sessionData: {
-    //     item: PropTypes.shape({
-    //         description: PropTypes.string,
-    //         location: PropTypes.string,
-    //         session_id: PropTypes.string,
-    //         speaker: PropTypes.string,
-    //         start_time: PropTypes.number,
-    //         title: PropTypes.string
-    //     })
-    // }
+    faveIds: PropTypes.arrayOf(PropTypes.string),
+    speakerData: PropTypes.objectOf(PropTypes.string),
+    sessionData: PropTypes.shape({
+        item: PropTypes.shape({
+            description: PropTypes.string,
+            location: PropTypes.string,
+            session_id: PropTypes.string,
+            speaker: PropTypes.string,
+            start_time: PropTypes.number,
+            title: PropTypes.string
+        })
+    })
 };

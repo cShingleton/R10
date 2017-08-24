@@ -4,7 +4,7 @@ const SET_SESSION_DATA = 'SET_SESSION_DATA';
 
 const initialState = {
     loading: true,
-    speaker: []
+    speaker: {}
 };
 
 export function setSessionData(sessionData) {

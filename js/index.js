@@ -15,6 +15,7 @@ const navigationContext = new NavigationContext({
   router: Router,
   store: Store,
 });
+
 export default class R10 extends Component {
   render() {
     return (

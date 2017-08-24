@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { Image, Linking, ScrollView, Text, TouchableWithoutFeedback, View } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-
 import Button from '../../components/Button';
 import { returnToSession } from '../../navigation/navigationHelpers';
 import { styles } from './styles';
@@ -44,4 +43,3 @@ export default Speaker;
 Speaker.propTypes = {
     speakerData: PropTypes.objectOf(PropTypes.string)
 };
-

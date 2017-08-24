@@ -23,8 +23,3 @@ const Maps = () => {
 };
 
 export default Maps;
-
-Maps.propTypes = {
-
-};
-

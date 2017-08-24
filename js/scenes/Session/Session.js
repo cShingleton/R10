@@ -1,13 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Image, Platform, ScrollView, Text, TouchableWithoutFeedback, View } from 'react-native';
-import Moment from 'moment';
 import Icon from 'react-native-vector-icons/Ionicons';
+import Moment from 'moment';
+import { 
+    Image, 
+    Platform, 
+    ScrollView, 
+    Text, 
+    TouchableWithoutFeedback, 
+    View 
+} from 'react-native';
 
-import Separator from '../../components/Separator';
 import Button from '../../components/Button';
 import { createFave, deleteFave } from '../../config/models';
 import { goToSpeaker } from '../../navigation/navigationHelpers';
+import Separator from '../../components/Separator';
 import { styles } from './styles';
 
 const Session = ({ sessionData, speakerData, faveIds }) => {
@@ -76,14 +83,7 @@ export default Session;
 
 Session.propTypes = {
     speakerData: PropTypes.objectOf(PropTypes.string),
-    // faveData: PropTypes.arrayOf(PropTypes.shape({
-    //     description: PropTypes.string,
-    //     location: PropTypes.string,
-    //     session_id: PropTypes.string,
-    //     speaker: PropTypes.string,
-    //     start_time: PropTypes.number,
-    //     title: PropTypes.string
-    // })),
+    faveIds: PropTypes.arrayOf(PropTypes.string),
     sessionData: PropTypes.shape({
         description: PropTypes.string,
         location: PropTypes.string,

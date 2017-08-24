@@ -17,7 +17,7 @@ class ScheduleContainer extends Component {
     }
 
     componentDidMount() {
-       this.props.dispatch(fetchFaveData());
+       this.props.dispatch(fetchFaveData()); // rewrite to cache fave ids
        this.props.dispatch(fetchScheduleData());
        realm.addListener('change', () => this.props.dispatch(fetchFaveData()));
     }
@@ -60,12 +60,5 @@ ScheduleContainer.propTypes = {
         title: PropTypes.number
     })),
     dispatch: PropTypes.func,
-    // faveData: PropTypes.arrayOf(PropTypes.shape({
-    //     description: PropTypes.string,
-    //     location: PropTypes.string,
-    //     session_id: PropTypes.string,
-    //     speaker: PropTypes.string,
-    //     start_time: PropTypes.number,
-    //     title: PropTypes.string
-    // }))
+    faveIds: PropTypes.arrayOf(PropTypes.string)
 };

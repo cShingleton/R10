@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import realm from '../../config/models';
-import Loader from '../../components/Loader';
-import { fetchFaveData } from '../../redux/modules/faves';
 import Faves from './Faves';
+import { fetchFaveData } from '../../redux/modules/faves';
+import Loader from '../../components/Loader';
+import realm from '../../config/models';
+
 
 class FavesContainer extends Component {
 
@@ -58,12 +59,5 @@ FavesContainer.propTypes = {
         title: PropTypes.number
     })),
     dispatch: PropTypes.func,
-    // unformattedFaveData: PropTypes.arrayOf(PropTypes.shape({
-    //     description: PropTypes.string,
-    //     location: PropTypes.string,
-    //     session_id: PropTypes.string,
-    //     speaker: PropTypes.string,
-    //     start_time: PropTypes.number,
-    //     title: PropTypes.string
-    // }))
+    faveIds: PropTypes.arrayOf(PropTypes.string)
 };
