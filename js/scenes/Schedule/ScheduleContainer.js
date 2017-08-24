@@ -4,7 +4,9 @@ import { connect } from 'react-redux';
 
 import Loader from '../../components/Loader';
 import Schedule from './Schedule';
+import realm from '../../config/models';
 import { fetchScheduleData } from '../../redux/modules/schedule';
+import { fetchFaveData } from '../../redux/modules/faves';
 
 class ScheduleContainer extends Component {
 
@@ -15,7 +17,9 @@ class ScheduleContainer extends Component {
     }
 
     componentDidMount() {
+       this.props.dispatch(fetchFaveData());
        this.props.dispatch(fetchScheduleData());
+       realm.addListener('change', () => this.props.dispatch(fetchFaveData()));
     }
 
     render() {
@@ -25,7 +29,10 @@ class ScheduleContainer extends Component {
             );
         } else {
             return (
-                <Schedule sessionData={this.props.scheduleData} />
+                <Schedule 
+                    sessionData={this.props.scheduleData} 
+                    faveData={this.props.faveData}
+                />
             );
         }
     }
@@ -33,7 +40,8 @@ class ScheduleContainer extends Component {
 
 const mapStateToProps = (state) => ({
     scheduleData: state.schedule.scheduleData,
-    loading: state.schedule.loading
+    loading: state.schedule.loading,
+    faveData: state.faves.unformatFaveData
 });
 
 export default connect(mapStateToProps)(ScheduleContainer);

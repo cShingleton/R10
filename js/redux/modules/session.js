@@ -18,6 +18,7 @@ export function SessionReducer(state = initialState, action) {
     switch (action.type) {
     case SET_SESSION_DATA:
         return {
+            ...state,
             loading: false,
             speaker: action.payload
         }

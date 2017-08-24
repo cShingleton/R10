@@ -21,7 +21,7 @@ const Session = ({ sessionData, speakerData, faveData }) => {
                     <Text style={styles.subTitle}>
                         {sessionData.location}
                     </Text>
-                    {(matchedId) 
+                    {(matchedId)
                         ? <Icon name="ios-heart" style={styles.iconHeart} size={16} />
                         : null
                     }
@@ -35,29 +35,33 @@ const Session = ({ sessionData, speakerData, faveData }) => {
                 <Text style={styles.description}>
                     {sessionData.description}
                 </Text>
-                <Text style={styles.presentedText}>
-                    Presented by:
-                </Text>
-                <TouchableWithoutFeedback onPress={() => goToSpeaker(speakerData)}>
-                    <View style={styles.speakerContainer}>
-                        <Image
-                            style={styles.speakerImage}
-                            source={{ uri: speakerData.image }}
-                        />
-                        <Text style={styles.speakerName}>{speakerData.name}</Text>
+                {(speakerData) ?
+                    <View>
+                        <Text style={styles.presentedText}>
+                            Presented by:
+                        </Text>
+                        <TouchableWithoutFeedback onPress={() => goToSpeaker(speakerData)}>
+                            <View style={styles.speakerContainer}>
+                                <Image
+                                    style={styles.speakerImage}
+                                    source={{ uri: speakerData.image }}
+                                />
+                                <Text style={styles.speakerName}>{speakerData.name}</Text>
+                            </View>
+                        </TouchableWithoutFeedback>
                     </View>
-                </TouchableWithoutFeedback>
+                    : null}
                 <Separator />
-                <Button 
+                <Button
                     text={
                         (matchedId)
-                        ? "Remove from Faves"
-                        : "Add to Faves"
+                            ? "Remove from Faves"
+                            : "Add to Faves"
                     }
                     onPress={
                         (matchedId)
-                        ? () => deleteFave(sessionData.session_id)
-                        : () => createFave(sessionData.session_id)
+                            ? () => deleteFave(sessionData.session_id)
+                            : () => createFave(sessionData.session_id)
                     }
                 />
             </View >

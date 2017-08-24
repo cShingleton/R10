@@ -2,20 +2,27 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Moment from 'moment';
 import { SectionList, Text, TouchableWithoutFeedback, View } from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
 
-import { goToSession } from '../../navigation/navigationHelpers'; 
+import { goToSession } from '../../navigation/navigationHelpers';
 import { styles } from './styles';
 
-const Faves = ({ faveData }) => {
+const Faves = ({ faveData, unformatFaveData }) => {
     return (
         <View>
             <SectionList
                 keyExtractor={(item) => (item.session_id)}
-                renderItem={({item}) => (
+                renderItem={({ item }) => (
                     <TouchableWithoutFeedback onPress={() => goToSession('Faves', { item })}>
                         <View style={styles.talkContainer}>
                             <Text style={styles.Title}>{item.title}</Text>
-                            <Text style={styles.subTitle}>{item.location}</Text>
+                            <View style={styles.subContainer}>
+                                <Text style={styles.subTitle}>{item.location}</Text>
+                                {(unformatFaveData.find(fave => fave.session_id === item.session_id))
+                                    ? <Icon name="ios-heart" style={styles.iconHeart} size={16} />
+                                    : null
+                                }
+                            </View>
                         </View>
                     </TouchableWithoutFeedback>
                 )}

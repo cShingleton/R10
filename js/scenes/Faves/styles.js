@@ -31,5 +31,12 @@ export const styles = StyleSheet.create({
         color: colors.mediumGray,
         paddingLeft: 10,
         paddingRight: 5
+    },
+    subContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-between'
+    },
+    iconHeart: {
+        color: colors.red
     }
 });

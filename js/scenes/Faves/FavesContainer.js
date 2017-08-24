@@ -28,7 +28,8 @@ class FavesContainer extends Component {
         } else {
             return (
                 <Faves 
-                    faveData={this.props.faveData} 
+                    faveData={this.props.faveData}
+                    unformatFaveData={this.props.unformattedFaveData} 
                 />
             );
         }
@@ -37,6 +38,7 @@ class FavesContainer extends Component {
 
 const mapStateToProps = (state) => ({
     faveData: state.faves.faveData,
+    unformattedFaveData: state.faves.unformatFaveData,
     loading: state.faves.loading
 });
 
