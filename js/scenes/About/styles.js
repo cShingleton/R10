@@ -37,7 +37,5 @@ export const styles = StyleSheet.create({
         fontSize: 16
     },
     conductText: {
-        paddingBottom: 20,
-        fontFamily: typography.fontMainLight
     }
 });

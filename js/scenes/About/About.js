@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FlatList, Image, ScrollView, Text, View } from 'react-native';
+import { FlatList, Image, ScrollView, Text, TouchableOpacity, View } from 'react-native';
 
+import ConductItem from '../../components/ConductItem';
 import Separator from '../../components/Separator';
+import { typography } from '../../config/styles';
 import { styles } from './styles';
 
 const About = ({ conductData }) => {
@@ -32,10 +34,7 @@ const About = ({ conductData }) => {
                     data={conductData}
                     keyExtractor={item => item.title}
                     renderItem={({ item }) => (
-                        <View>
-                            <Text style={styles.conductHeader}>+ {item.title}</Text>
-                            <Text style={styles.conductText}>{item.description}</Text>
-                        </View>
+                        <ConductItem itemData={item} />
                     )}
                 />
                 <Separator />

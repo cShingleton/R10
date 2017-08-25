@@ -20,15 +20,17 @@
       android:name="com.google.android.geo.API_KEY"
       android:value="private static final String API_KEY = BuildConfig.API_KEY"/>
       <activity
-        android:name=".MainActivity"
+        android:name=".SplashActivity"
         android:label="@string/app_name"
         android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-        android:windowSoftInputMode="adjustResize">
+        android:windowSoftInputMode="adjustResize"
+          android:theme="@style/SplashTheme">
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
       </activity>
+        <activity android:name=".MainActivity" />
       <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
     </application>
 

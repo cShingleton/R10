@@ -13,7 +13,7 @@ class AboutContainer extends Component {
           title: 'About',
         }
     }
-
+    
     componentDidMount() {
         this.props.dispatch(fetchConductData());
     }
