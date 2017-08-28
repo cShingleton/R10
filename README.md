@@ -10,7 +10,7 @@ These instructions will get you a copy of the project up and running on your loc
 ### Prerequisites
 
 - Installation of Node and NPM. 
-- [Android Studio] (https://facebook.github.io/react-native/docs/getting-started.html#preparing-the-android-device) with a working emulator.
+- [Android Studio](https://facebook.github.io/react-native/docs/getting-started.html#preparing-the-android-device) with a working emulator.
 
 ### Installing
 
@@ -43,9 +43,9 @@ react-native run-ios
 ## Built With
 
 * [React Native](https://facebook.github.io/react-native) - The mobile framework used
-* [Redux] (http://redux.js.org/docs/introduction) - Global State Management
+* [Redux](http://redux.js.org/docs/introduction) - Global State Management
 * [Realm](https://realm.io) - The embedded database 
-* [Redux Persist] (https://github.com/rt2zz/redux-persist) - Redux store rehydration
+* [Redux Persist](https://github.com/rt2zz/redux-persist) - Redux store rehydration
 
 ## Authors
 
