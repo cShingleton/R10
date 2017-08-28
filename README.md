@@ -1,7 +1,6 @@
 # R10
 
-A basic multiview that gives details on upcoming developer conference called R10. The app has pages for speaker schedule, 
-session information, map-support with a location pin and an about page. 
+A basic multiview mobile app that gives details on an upcoming developer conference called R10. The app has pages for speaker schedule, session information, map-support with a location pin and an about page. 
 
 ## Getting Started
 
