@@ -5,6 +5,8 @@ import {
 } from 'redux';
 import thunk from 'redux-thunk';
 import { createNavigationEnabledStore } from '@expo/ex-navigation';
+import { persistStore, autoRehydrate } from 'redux-persist';
+import { AsyncStorage } from 'react-native';
 
 import rootReducer from './reducers'; 
 
@@ -18,8 +20,11 @@ const store = createStoreWithNavigation(
   rootReducer,
   {}, // initial state
   composeEnhancers(
-    applyMiddleware(thunk)
+    applyMiddleware(thunk),
+    autoRehydrate()
   ) // enhancers
 );
+
+persistStore(store, { storage: AsyncStorage });
 
 export default store;

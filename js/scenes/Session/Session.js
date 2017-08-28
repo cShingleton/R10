@@ -20,6 +20,13 @@ import { styles } from './styles';
 const Session = ({ sessionData, speakerData, faveIds }) => {
 
     const matchedId = faveIds.find(item => item === sessionData.session_id);
+    //const match = faveIds[sessionData.session_id];
+
+    // const faveIds = {
+    //     "session_id": {
+    //         //sessionData
+    //     }
+    // }
 
     return (
         <ScrollView style={styles.sceneContain}>

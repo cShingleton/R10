@@ -1,5 +1,6 @@
 import { queryFaves } from '../../config/models';
 import { formatSessionData } from '../../lib/helperFunctions';
+import { AsyncStorage } from 'react-native';
 
 const SET_FAVES_DATA = 'SET_FAVES_DATA';
 const SET_FAVE_IDS = 'SET_UNFORMAT_FAVE_DATA';
@@ -26,20 +27,20 @@ export function setFaveIds(faveIds) {
 
 export function FavesReducer(state = initialState, action) {
     switch (action.type) {
-    case SET_FAVES_DATA:
-        return {
-            ...state,
-            loading: false,
-            faveData: action.payload
-        }
-    case SET_FAVE_IDS:
-        return {
-            ...state,
-            loading: false,
-            faveIds: action.payload
-        }
-    default:
-        return state;
+        case SET_FAVES_DATA:
+            return {
+                ...state,
+                loading: false,
+                faveData: action.payload
+            }
+        case SET_FAVE_IDS:
+            return {
+                ...state,
+                loading: false,
+                faveIds: action.payload
+            }
+        default:
+            return state;
     }
 }
 
@@ -51,12 +52,11 @@ export function fetchFaveData() {
         fetch(endpoint)
             .then(response => response.json())
             .then(data => {
-                const filterData = data.filter(item => faveData.find(el => el.id === item.session_id));
+                const filterData = data.filter(item => faveData.find(el => el.id === item.session_id)); 
                 const faveIds = filterData.map(fave => fave.session_id);
                 dispatch(setFaveIds(faveIds));
                 const formattedData = formatSessionData(filterData);
                 dispatch(setFaveData(formattedData));
-            })
-            .catch(error => `Error fetching JSON: ${error}`);
+            }).catch(error => `Error fetching JSON: ${error}`);
     }
 }
