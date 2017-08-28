@@ -25,7 +25,7 @@ cd ./R10
 3. Open the R10 folder in your text editor of choice and run an npm install. 
 
 ```
-npm install.
+npm install
 ```
 
 4. To run on android run the following command WHILST your android emulator is already running. 
@@ -34,7 +34,7 @@ npm install.
 react-native run-android
 ```
 
-5. To run on android run
+5. To run on iOS run
 
 ```
 react-native run-ios
@@ -42,9 +42,9 @@ react-native run-ios
 
 ## Built With
 
-* [React Native](https://facebook.github.io/react-native/) - The mobile framework used
-* [Redux] (http://redux.js.org/docs/introduction/) - Global State Management
-* [Realm](https://realm.io/) - The embedded database 
+* [React Native](https://facebook.github.io/react-native) - The mobile framework used
+* [Redux] (http://redux.js.org/docs/introduction) - Global State Management
+* [Realm](https://realm.io) - The embedded database 
 * [Redux Persist] (https://github.com/rt2zz/redux-persist) - Redux store rehydration
 
 ## Authors
