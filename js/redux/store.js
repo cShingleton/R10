@@ -25,6 +25,6 @@ const store = createStoreWithNavigation(
   ) // enhancers
 );
 
-persistStore(store, { storage: AsyncStorage });
+//persistStore(store, { storage: AsyncStorage });
 
 export default store;
